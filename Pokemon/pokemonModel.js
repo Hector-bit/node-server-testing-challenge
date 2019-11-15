@@ -20,8 +20,10 @@ async function update(id, changes) {
 }
 
 function remove(id) {
-  return null;
-}
+    return db('pokemon')
+    .del()
+    .where({ id })
+  }
 
 function find() {
   return db('pokemon');

@@ -30,4 +30,14 @@ server.post('/trainers', (req, res) => {
     })
 })
 
+server.delete('/trainers/:id', (req, res) => {
+    Trainers.remove(req.params.id)
+    .then(trainer => {
+        res.status(200).json(trainer)
+    })
+    .catch(error => {
+        res.status(500).json(error);
+    })
+})
+
 module.exports = server;
