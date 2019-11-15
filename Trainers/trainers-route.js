@@ -20,4 +20,14 @@ server.get('/trainers', (req, res) => {
     });
 });
 
+server.post('/trainers', (req, res) => {
+    Trainers.insert(req.body)
+    .then(trainer => {
+        res.status(200).json(trainer)
+    })
+    .catch(error => {
+        res.status(500).json(error);
+    })
+})
+
 module.exports = server;

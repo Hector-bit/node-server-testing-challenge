@@ -20,4 +20,14 @@ server.get('/pokemon', (req, res) => {
     });
 });
 
+server.post('/pokemon', (req, res) => {
+    Pokemon.insert(req.body)
+    .then(pokemon => {
+        res.status(200).json(pokemon);
+    })
+    .catch(error => {
+        res.status(500).json(error);
+    })
+})
+
 module.exports = server;

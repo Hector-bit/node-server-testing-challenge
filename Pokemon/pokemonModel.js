@@ -8,19 +8,10 @@ module.exports = {
   findById,
 };
 
-function insert(hobbit) {
-  return (
-    db("pokemon")
-      .insert(hobbit, "id")
-      // .then(([id]) => {
-      .then(ids => {
-        const id = ids[0];
-        // const [id] = ids;
-        return db("hobbits")
-          .where({ id })
-          .first();
-      })
-  );
+function insert(pokemon) {
+  return db('pokemon')
+  .insert(pokemon)
+  .into('pokemon')
 }
 
 
